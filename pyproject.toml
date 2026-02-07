@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "repo-sync"
+version = "0.1.0"
+description = "Sync Odoo modules from GitHub into Qdrant vector database"
+requires-python = ">=3.11"
+dependencies = [
+    "qdrant-client>=1.9.0",
+    "openai>=1.30.0",
+    "PyGithub>=2.3.0",
+    "gitpython>=3.1.43",
+    "python-dotenv>=1.0.1",
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    "lxml>=5.2.0",
+    "tiktoken>=0.7.0",
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+repo-sync = "repo_sync.sync.cli:main"
+repo-sync-api = "repo_sync.api.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/repo_sync"]
