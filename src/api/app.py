@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from repo_sync.api.dependencies import get_settings
-from repo_sync.api.routers import docs, health, search
+from api.dependencies import get_settings
+from api.routers import docs, health, search
 
 
 def create_app() -> FastAPI:

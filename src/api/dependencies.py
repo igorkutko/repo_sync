@@ -6,9 +6,9 @@ from functools import lru_cache
 
 from openai import OpenAI
 
-from repo_sync.config import Settings
-from repo_sync.sync.embeddings import EmbeddingClient
-from repo_sync.sync.qdrant_loader import QdrantLoader
+from config import Settings
+from sync.embeddings import EmbeddingClient
+from sync.qdrant_loader import QdrantLoader
 
 
 @lru_cache

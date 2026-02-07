@@ -15,8 +15,8 @@ from qdrant_client.models import (
     VectorParams,
 )
 
-from repo_sync.config import Settings
-from repo_sync.models import CollectionName, ContentChunk
+from config import Settings
+from models import CollectionName, ContentChunk
 
 logger = logging.getLogger(__name__)
 

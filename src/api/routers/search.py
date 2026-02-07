@@ -5,8 +5,8 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends
 from qdrant_client.models import FieldCondition, Filter, MatchValue
 
-from repo_sync.api.dependencies import get_embedding_client, get_qdrant_loader
-from repo_sync.api.schemas import (
+from api.dependencies import get_embedding_client, get_qdrant_loader
+from api.schemas import (
     CodeSearchRequest,
     ManifestSearchRequest,
     SearchRequest,
@@ -14,9 +14,9 @@ from repo_sync.api.schemas import (
     SearchResult,
     ViewSearchRequest,
 )
-from repo_sync.models import CollectionName
-from repo_sync.sync.embeddings import EmbeddingClient
-from repo_sync.sync.qdrant_loader import QdrantLoader
+from models import CollectionName
+from sync.embeddings import EmbeddingClient
+from sync.qdrant_loader import QdrantLoader
 
 router = APIRouter(prefix="/search", tags=["search"])
 

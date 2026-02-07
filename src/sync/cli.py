@@ -7,8 +7,8 @@ import sys
 
 from dotenv import load_dotenv
 
-from repo_sync.config import Settings
-from repo_sync.sync.pipeline import run_sync
+from config import Settings
+from sync.pipeline import run_sync
 
 
 def main() -> None:

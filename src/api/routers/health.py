@@ -4,9 +4,9 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends
 
-from repo_sync.api.dependencies import get_qdrant_loader
-from repo_sync.api.schemas import HealthResponse
-from repo_sync.sync.qdrant_loader import QdrantLoader
+from api.dependencies import get_qdrant_loader
+from api.schemas import HealthResponse
+from sync.qdrant_loader import QdrantLoader
 
 router = APIRouter()
 

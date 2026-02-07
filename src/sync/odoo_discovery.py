@@ -6,7 +6,7 @@ import ast
 import logging
 from pathlib import Path
 
-from repo_sync.models import OdooModule
+from models import OdooModule
 
 logger = logging.getLogger(__name__)
 

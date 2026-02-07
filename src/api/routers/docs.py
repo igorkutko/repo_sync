@@ -6,17 +6,17 @@ from fastapi import APIRouter, Depends, HTTPException
 from openai import OpenAI
 from qdrant_client.models import FieldCondition, Filter, MatchValue
 
-from repo_sync.api.dependencies import (
+from api.dependencies import (
     get_embedding_client,
     get_openai_client,
     get_qdrant_loader,
     get_settings,
 )
-from repo_sync.api.schemas import DocGenerateRequest, DocGenerateResponse
-from repo_sync.config import Settings
-from repo_sync.models import CollectionName
-from repo_sync.sync.embeddings import EmbeddingClient
-from repo_sync.sync.qdrant_loader import QdrantLoader
+from api.schemas import DocGenerateRequest, DocGenerateResponse
+from config import Settings
+from models import CollectionName
+from sync.embeddings import EmbeddingClient
+from sync.qdrant_loader import QdrantLoader
 
 router = APIRouter(prefix="/docs", tags=["docs"])
 

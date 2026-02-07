@@ -6,7 +6,7 @@ import ast
 import logging
 from pathlib import Path
 
-from repo_sync.models import ChunkType, CollectionName, ContentChunk
+from models import ChunkType, CollectionName, ContentChunk
 
 logger = logging.getLogger(__name__)
 

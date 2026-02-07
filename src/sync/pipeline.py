@@ -5,19 +5,19 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from repo_sync.config import Settings
-from repo_sync.models import ContentChunk, OdooModule
-from repo_sync.sync.embeddings import EmbeddingClient
-from repo_sync.sync.github_client import GitHubClient
-from repo_sync.sync.odoo_discovery import discover_modules, filter_changed_modules
-from repo_sync.sync.parsers import (
+from config import Settings
+from models import ContentChunk, OdooModule
+from sync.embeddings import EmbeddingClient
+from sync.github_client import GitHubClient
+from sync.odoo_discovery import discover_modules, filter_changed_modules
+from sync.parsers import (
     parse_generic_file,
     parse_manifest,
     parse_python_file,
     parse_xml_file,
 )
-from repo_sync.sync.qdrant_loader import QdrantLoader
-from repo_sync.sync.state import SyncState
+from sync.qdrant_loader import QdrantLoader
+from sync.state import SyncState
 
 logger = logging.getLogger(__name__)
 
