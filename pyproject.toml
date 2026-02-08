@@ -24,8 +24,8 @@ dependencies = [
 ]
 
 [project.scripts]
-repo-sync = "repo_sync.sync.cli:main"
-repo-sync-api = "repo_sync.api.app:main"
+repo-sync = "sync.cli:main"
+repo-sync-api = "api.app:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/repo_sync"]
+packages = ["src"]

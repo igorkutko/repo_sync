@@ -47,8 +47,8 @@ def main() -> None:
     settings = get_settings()
     uvicorn.run(
         "repo_sync.api.app:app",
-        host=settings.api_host,
-        port=settings.api_port,
+        host=settings.fastapi_host,
+        port=settings.fastapi_port,
         reload=False,
     )
 

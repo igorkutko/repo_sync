@@ -11,6 +11,7 @@ from api.dependencies import (
     get_openai_client,
     get_qdrant_loader,
     get_settings,
+    verify_api_key,
 )
 from api.schemas import DocGenerateRequest, DocGenerateResponse
 from config import Settings
@@ -18,7 +19,7 @@ from models import CollectionName
 from sync.embeddings import EmbeddingClient
 from sync.qdrant_loader import QdrantLoader
 
-router = APIRouter(prefix="/docs", tags=["docs"])
+router = APIRouter(prefix="/docs", tags=["docs"], dependencies=[Depends(verify_api_key)])
 
 DOC_SYSTEM_PROMPT = """You are a technical documentation writer for Odoo modules.
 Given code snippets, views, and manifest information from an Odoo module,

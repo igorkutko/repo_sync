@@ -30,8 +30,9 @@ class Settings(BaseSettings):
     database_url: str = "postgresql://repo_sync:repo_sync@localhost:5432/repo_sync"
 
     # API
-    api_host: str = "0.0.0.0"
-    api_port: int = 8000
+    fastapi_host: str = "0.0.0.0"
+    fastapi_port: int = 8000
+    fastapi_api_key: str | None = None
 
     # Embedding dimensions
     embedding_dimensions: int = 1536

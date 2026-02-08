@@ -2,12 +2,12 @@ name: Sync Odoo Modules
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Every 6 hours
+    - cron: "0 3 * * *"  # Every night at 3AM
   workflow_dispatch:
 
 jobs:
   sync:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -23,10 +23,14 @@ jobs:
 
       - name: Run sync
         env:
+          GITHUB_ORG_NAME: todoltd
           GITHUB_TOKEN: ${{ secrets.ORG_GITHUB_TOKEN }}
-          GITHUB_ORG_NAME: ${{ secrets.GITHUB_ORG_NAME }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          QDRANT_URL: http://localhost:6333
+          QDRANT_URL: https://qdrant.todo.ltd
+          QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
+          POSTGRESQL_DB_HOST: 188.245.115.159
+          POSTGRESQL_DB_NAME: reposync
+          POSTGRESQL_DB_USER: github
+          POSTGRESQL_DB_PASSWORD: ${{ secrets.POSTGRESQL_DB_PASSWORD }}
           REPOS_DIR: /opt/repo-sync/repos
-          SYNC_STATE_PATH: /opt/repo-sync/sync_state.json
-        run: repo-sync
+        run: python ./src/sync/cli.py

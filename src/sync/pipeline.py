@@ -158,6 +158,8 @@ def run_sync(settings: Settings) -> dict:
             except Exception:
                 logger.exception("Error processing repo %s", repo_full_name)
 
+            break
+
         state.save()
 
     finally:

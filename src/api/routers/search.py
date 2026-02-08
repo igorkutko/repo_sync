@@ -5,7 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends
 from qdrant_client.models import FieldCondition, Filter, MatchValue
 
-from api.dependencies import get_embedding_client, get_qdrant_loader
+from api.dependencies import get_embedding_client, get_qdrant_loader, verify_api_key
 from api.schemas import (
     CodeSearchRequest,
     ManifestSearchRequest,
@@ -18,7 +18,7 @@ from models import CollectionName
 from sync.embeddings import EmbeddingClient
 from sync.qdrant_loader import QdrantLoader
 
-router = APIRouter(prefix="/search", tags=["search"])
+router = APIRouter(prefix="/search", tags=["search"], dependencies=[Depends(verify_api_key)])
 
 
 def _build_filter(conditions: list[tuple[str, str | None]]) -> Filter | None:
