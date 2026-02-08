@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 PYTHON_EXTENSIONS = {".py"}
 XML_EXTENSIONS = {".xml", ".html"}
 SKIP_FILES = {"__manifest__.py", "__init__.py"}
-GENERIC_EXTENSIONS = {".js", ".css", ".scss", ".less"}
+GENERIC_EXTENSIONS = {".js", ".css", ".scss", ".less", ".txt", ".csv", ".md", ".rst", ".po"}
 
 
 def parse_module(module: OdooModule, settings: Settings) -> list[ContentChunk]:
@@ -85,11 +85,11 @@ def run_sync(settings: Settings) -> dict:
     """
     github = GitHubClient(settings)
     embedder = EmbeddingClient(settings)
-    # loader = QdrantLoader(settings)
-    state = SyncState(settings.sync_state_path)
+    loader = QdrantLoader(settings)
+    state = SyncState(settings)
 
     # Ensure Qdrant collections exist
-    # loader.ensure_collections()
+    loader.ensure_collections()
 
     stats = {
         "repos_found": 0,
@@ -135,7 +135,7 @@ def run_sync(settings: Settings) -> dict:
                     )
 
                     # Delete old points for this module
-                    # loader.delete_module_points(module.repo_name, module.module_name)
+                    loader.delete_module_points(module.repo_name, module.module_name)
 
                     # Parse into chunks
                     chunks = parse_module(module, settings)
@@ -146,7 +146,7 @@ def run_sync(settings: Settings) -> dict:
                     embeddings = embedder.embed_chunks(chunks)
 
                     # Upsert into Qdrant
-                    # loader.upsert_chunks(chunks, embeddings)
+                    loader.upsert_chunks(chunks, embeddings)
 
                     stats["modules_processed"] += 1
                     stats["chunks_embedded"] += len(chunks)
@@ -161,6 +161,7 @@ def run_sync(settings: Settings) -> dict:
         state.save()
 
     finally:
+        state.close()
         github.close()
 
     logger.info("Sync complete: %s", stats)

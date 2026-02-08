@@ -8,6 +8,18 @@ services:
       - qdrant_data:/qdrant/storage
     restart: unless-stopped
 
+  postgres:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: repo_sync
+      POSTGRES_USER: repo_sync
+      POSTGRES_PASSWORD: repo_sync
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
   api:
     build: .
     ports:
@@ -16,7 +28,9 @@ services:
       - .env
     depends_on:
       - qdrant
+      - postgres
     restart: unless-stopped
 
 volumes:
   qdrant_data:
+  postgres_data:

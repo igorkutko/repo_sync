@@ -27,7 +27,7 @@ class Settings(BaseSettings):
 
     # Sync
     repos_dir: Path = Path("./repos")
-    sync_state_path: Path = Path("./sync_state.json")
+    database_url: str = "postgresql://repo_sync:repo_sync@localhost:5432/repo_sync"
 
     # API
     api_host: str = "0.0.0.0"
