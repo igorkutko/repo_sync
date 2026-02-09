@@ -8,7 +8,7 @@ from pathlib import Path
 
 import tiktoken
 
-from models import ChunkType, CollectionName, ContentChunk
+from common.models import ChunkType, CollectionName, ContentChunk
 
 logger = logging.getLogger(__name__)
 

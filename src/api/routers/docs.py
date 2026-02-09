@@ -14,10 +14,10 @@ from api.dependencies import (
     verify_api_key,
 )
 from api.schemas import DocGenerateRequest, DocGenerateResponse
-from config import Settings
-from models import CollectionName
-from sync.embeddings import EmbeddingClient
-from sync.qdrant_loader import QdrantLoader
+from common.config import Settings
+from common.models import CollectionName
+from common.embeddings import EmbeddingClient
+from common.qdrant_loader import QdrantLoader
 
 router = APIRouter(prefix="/docs", tags=["docs"], dependencies=[Depends(verify_api_key)])
 

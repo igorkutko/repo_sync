@@ -6,7 +6,7 @@ import ast
 import logging
 from pathlib import Path
 
-from models import OdooModule
+from common.models import OdooModule
 
 logger = logging.getLogger(__name__)
 

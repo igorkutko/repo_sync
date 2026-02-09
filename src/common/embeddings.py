@@ -7,8 +7,8 @@ import logging
 import tiktoken
 from openai import OpenAI
 
-from config import Settings
-from models import ContentChunk
+from common.config import Settings
+from common.models import ContentChunk
 
 logger = logging.getLogger(__name__)
 

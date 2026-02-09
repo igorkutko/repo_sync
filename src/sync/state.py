@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 
 import psycopg2
-from config import Settings
+from common.config import Settings
 
 logger = logging.getLogger(__name__)
 

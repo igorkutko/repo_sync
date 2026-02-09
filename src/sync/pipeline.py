@@ -5,9 +5,9 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
-from config import Settings
-from models import ContentChunk, OdooModule
-from sync.embeddings import EmbeddingClient
+from common.config import Settings
+from common.models import ContentChunk, OdooModule
+from common.embeddings import EmbeddingClient
 from sync.github_client import GitHubClient
 from sync.odoo_discovery import discover_modules, filter_changed_modules
 from sync.parsers import (
@@ -16,7 +16,7 @@ from sync.parsers import (
     parse_python_file,
     parse_xml_file,
 )
-from sync.qdrant_loader import QdrantLoader
+from common.qdrant_loader import QdrantLoader
 from sync.state import SyncState
 
 logger = logging.getLogger(__name__)

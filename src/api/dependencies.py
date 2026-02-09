@@ -8,9 +8,9 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from openai import OpenAI
 
-from config import Settings
-from sync.embeddings import EmbeddingClient
-from sync.qdrant_loader import QdrantLoader
+from common.config import Settings
+from common.embeddings import EmbeddingClient
+from common.qdrant_loader import QdrantLoader
 
 _bearer_scheme = HTTPBearer()
 

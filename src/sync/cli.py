@@ -7,7 +7,7 @@ import sys
 
 from dotenv import load_dotenv
 
-from config import Settings
+from common.config import Settings
 from sync.pipeline import run_sync
 
 

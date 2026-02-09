@@ -8,7 +8,7 @@ from pathlib import Path
 from git import Repo as GitRepo
 from github import Github
 
-from config import Settings
+from common.config import Settings
 
 logger = logging.getLogger(__name__)
 

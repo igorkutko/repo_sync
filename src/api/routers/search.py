@@ -14,9 +14,9 @@ from api.schemas import (
     SearchResult,
     ViewSearchRequest,
 )
-from models import CollectionName
-from sync.embeddings import EmbeddingClient
-from sync.qdrant_loader import QdrantLoader
+from common.models import CollectionName
+from common.embeddings import EmbeddingClient
+from common.qdrant_loader import QdrantLoader
 
 router = APIRouter(prefix="/search", tags=["search"], dependencies=[Depends(verify_api_key)])
 

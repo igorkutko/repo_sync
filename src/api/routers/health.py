@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends
 
 from api.dependencies import get_qdrant_loader
 from api.schemas import HealthResponse
-from sync.qdrant_loader import QdrantLoader
+from common.qdrant_loader import QdrantLoader
 
 router = APIRouter()
 

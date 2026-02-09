@@ -7,7 +7,7 @@ from pathlib import Path
 
 from lxml import etree
 
-from models import ChunkType, CollectionName, ContentChunk
+from common.models import ChunkType, CollectionName, ContentChunk
 
 logger = logging.getLogger(__name__)
 
