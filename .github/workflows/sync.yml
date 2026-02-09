@@ -33,4 +33,4 @@ jobs:
           POSTGRESQL_DB_USER: github
           POSTGRESQL_DB_PASSWORD: ${{ secrets.POSTGRESQL_DB_PASSWORD }}
           REPOS_DIR: /opt/repo-sync/repos
-        run: python ./src/sync/cli.py
+        run: repo-sync
